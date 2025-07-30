@@ -1,11 +1,10 @@
 "use client";
 
 import { SearchResponse } from "@/Models/Book";
-import { searchAllBooks } from "@/services/BookService";
+import { numberOfBooksToRender, searchAllBooks } from "@/services/BookService";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-export const numberOfBooksToRender = 12;
 
 export default function Home() {
   const [query, setQuery] = useState('');

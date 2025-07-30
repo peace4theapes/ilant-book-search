@@ -1,5 +1,7 @@
-import { numberOfBooksToRender } from "@/app/page";
+
 import { SearchResponse } from "@/Models/Book";
+
+export const numberOfBooksToRender = 12;
 
 export async function searchAllBooks(query: string, page: number = 0): Promise<SearchResponse> {
   try {
