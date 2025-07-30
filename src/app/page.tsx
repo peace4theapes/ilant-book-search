@@ -3,6 +3,7 @@
 import { SearchResponse } from "@/Models/Book";
 import { searchAllBooks } from "@/services/BookService";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export const numberOfBooksToRender = 12;
 
@@ -20,6 +21,8 @@ export default function Home() {
   }
 
   const fetchDataForCurrentPage = async () => {
+    // const local = await fetch('http://127.0.0.1:8000');
+    // console.log('LLLL', local)
     const booksResponse = await searchAllBooks(query, currentPage);
     let doesNextPageExist = false;
     if(booksResponse.totalItems > numberOfBooksToRender){
@@ -51,7 +54,7 @@ export default function Home() {
                   aria-label="Search for a Book" 
                   type="text" 
                   placeholder="Search" 
-                  className="text-sm text-gray-base py-2 px-14 border border-gray-200 rounded"
+                  className="text-sm text-gray-base py-2 px-14 border border-gray-200 rounded placeholder: text-center"
                   value={query} 
                   onChange={(e) => setQuery(e.target.value)}  />
               
@@ -73,13 +76,13 @@ export default function Home() {
                   <div className="flow-root bg-light rounded-lg px-4 pb-8">
                     <div className="-mt-6">
                       <div className="flex items-center justify-center">
-                        <img
-                          src={
-                            // Removes compression to get higher quality
-                            book.volumeInfo.imageLinks?.smallThumbnail.replace(/._SX50_|._SY75_/gi, "")
-                          }
-                          className="p-2 w-64 rounded-lg"
-                          alt={book.volumeInfo.title}
+                        <Image
+                        src={book.volumeInfo.imageLinks?.smallThumbnail || ''}
+                        alt={book.volumeInfo.title}
+                        unoptimized
+                        width={200}
+                        height={200}
+                        className="rounded-lg"            
                         />
                       </div>
                       <div className="text-center justify-center items-center">
