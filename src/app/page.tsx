@@ -20,12 +20,13 @@ export default function Home() {
   }
 
   const fetchDataForCurrentPage = async () => {
-    console.log('cccc', currentPage);
     const booksResponse = await searchAllBooks(query, currentPage);
-    const doesNextPageExist = booksResponse.totalItems > (currentPage * numberOfBooksToRender);
+    let doesNextPageExist = false;
+    if(booksResponse.totalItems > numberOfBooksToRender){
+      doesNextPageExist = booksResponse.totalItems > (currentPage * numberOfBooksToRender);
+    }
     setNextPageExists(doesNextPageExist);
     setSearchResults(booksResponse);
-    console.log('HEHEHEHE', booksResponse);
   }
   
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
