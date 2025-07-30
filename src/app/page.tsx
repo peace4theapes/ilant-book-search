@@ -82,7 +82,7 @@ export default function Home() {
                         unoptimized
                         width={200}
                         height={200}
-                        className="rounded-lg"            
+                        className="max-w-xs transition duration-300 ease-in-out hover:scale-110"            
                         />
                       </div>
                       <div className="text-center justify-center items-center">
