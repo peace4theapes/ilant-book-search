@@ -18,4 +18,14 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 Open [https://github.com/peace4theapes/ilant-book-search] (https://github.com/peace4theapes/ilant-book-search) to view a live hosted app.
 
-FastAPI - main.py
+## FastAPI
+
+The FastAPI file is main.py.
+
+To run it locally:
+
+- Install FastAPI (pip install "fastapi")
+- Open a terminal window and cd into the app folder. 
+- run command "fastapi dev main.py"
+
+This will start the FastAPI server and provide links to the localhost server.
