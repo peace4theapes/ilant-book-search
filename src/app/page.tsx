@@ -46,7 +46,7 @@ export default function Home() {
     }, [currentPage]
   )
   return (
-    <div className="font-sans grid grid-rows-[-200px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+    <div className="font-sans grid grid-rows-[-500px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
           <div className="flex flex-col items-center p=10"> 
           <form className="flex flex-col gap-2 w-full max-w-xs p-10" onSubmit={handleSubmit} role='search'>
@@ -61,7 +61,7 @@ export default function Home() {
 
               <button 
                   type="submit"
-                  className="bg-green-400 w-full mt-4">
+                  className="bg-green-400 w-full h-10 mt-4 rounded-2xl">
                   Search
               </button>
           </form>
