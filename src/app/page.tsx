@@ -20,8 +20,7 @@ export default function Home() {
   }
 
   const fetchDataForCurrentPage = async () => {
-    // const local = await fetch('http://127.0.0.1:8000');
-    // console.log('LLLL', local)
+    
     const booksResponse = await searchAllBooks(query, currentPage);
     let doesNextPageExist = false;
     if(booksResponse.totalItems > numberOfBooksToRender){
@@ -33,6 +32,8 @@ export default function Home() {
   
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    
+    setCurrentPage(0);
     fetchDataForCurrentPage();
   };
   
@@ -75,14 +76,27 @@ export default function Home() {
                   <div className="flow-root bg-light rounded-lg px-4 pb-8">
                     <div className="-mt-6">
                       <div className="flex items-center justify-center">
-                        <Image
-                        src={book.volumeInfo.imageLinks?.smallThumbnail || ''}
-                        alt={book.volumeInfo.title}
-                        unoptimized
-                        width={200}
-                        height={200}
-                        className="max-w-xs transition duration-300 ease-in-out hover:scale-110"            
-                        />
+                        {
+                          book.volumeInfo.imageLinks?.smallThumbnail ? 
+                          <Image
+                            src={book.volumeInfo.imageLinks?.smallThumbnail || ''}
+                            alt={book.volumeInfo.title}
+                            unoptimized
+                            width={200}
+                            height={200}
+                            className="max-w-xs transition duration-300 ease-in-out hover:scale-120"            
+                            />
+                          :
+                          <Image
+                            src="/Placeholder_book.png"
+                            alt={book.volumeInfo.title}
+                            unoptimized
+                            width={240}
+                            height={200}
+                            className="max-w-xs transition duration-300 ease-in-out hover:scale-120"            
+                            />
+                        }
+                        
                       </div>
                       <div className="text-center justify-center items-center">
                         <h3 className="mt-4 text-lg font-bold w-full break-words overflow-x-auto text-primary tracking-tight">
@@ -120,7 +134,6 @@ export default function Home() {
               setCurrentPage(currentPage-1)
               scrollToTop();
             }}
-            target="_blank"
             rel="noopener noreferrer"
           >
             PREVIOUS
@@ -132,7 +145,6 @@ export default function Home() {
               setCurrentPage(currentPage+1)
               scrollToTop();
             }}
-            target="_blank"
             rel="noopener noreferrer"
           >
             NEXT
