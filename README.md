@@ -16,7 +16,7 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Open [https://github.com/peace4theapes/ilant-book-search] (https://github.com/peace4theapes/ilant-book-search) to view a live hosted app.
+Open [https://main.dm2z58ll79myk.amplifyapp.com/] (https://main.dm2z58ll79myk.amplifyapp.com/) to view a live hosted app.
 
 ## FastAPI
 
